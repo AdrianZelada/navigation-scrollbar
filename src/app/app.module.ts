@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationTestComponent } from './navigation-test/navigation-test.component';
+import {NavigationScrollbarModule} from './navigation-scrollbar/navigation-scrollbar.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationTestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NavigationScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
