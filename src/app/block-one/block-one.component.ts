@@ -23,7 +23,15 @@ export class BlockOneComponent extends AbstractSectionComponent implements OnIni
     console.log('BlockOneComponent');
   }
 
-  next(data?: any): void {
+  activated(): void {
+    console.log('BlockOneComponent activated');
   }
+
+  inactivated(): void {
+    console.log('BlockOneComponent inactivated inactivated');
+  }
+  //
+  // next(data?: any): void {
+  // }
 
 }

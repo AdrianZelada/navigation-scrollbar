@@ -23,7 +23,18 @@ export class NavigationTestComponent extends AbstractSectionComponent implements
     console.log('NavigationTestComponent');
   }
 
-  next(data?: any): void {
+  activated(): void {
+    console.log('NavigationTestComponent activated');
   }
+
+  inactivated(): void {
+    console.log('NavigationTestComponent inactivated inactivated');
+  }
+
+  validate() {
+    return false;
+  }
+  // next(data?: any): void {
+  // }
 
 }

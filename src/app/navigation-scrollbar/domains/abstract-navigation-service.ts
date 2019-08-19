@@ -1,28 +1,46 @@
 import {QueryList} from '@angular/core';
 import {SectionDirective} from '../section/section.directive';
+import {SectionDirectiveInterface} from './abstract-section';
 
 export class AbstractNavigationService {
-  public sections: QueryList<SectionDirective>;
-  public currentSection: SectionDirective;
-  public prevSection: SectionDirective;
+  public sections: QueryList<SectionDirectiveInterface>;
+  public currentSection: SectionDirectiveInterface;
+  public prevSection: SectionDirectiveInterface;
   public index: number = -1;
   constructor() {}
-  registerSection(data: QueryList<SectionDirective>) {
+  registerSection(data: QueryList<SectionDirectiveInterface>) {
+    this.index = 0;
     this.sections = data;
-    this.next();
+    this.selectStep(this.index);
   }
 
   next() {
-    this.prevSection = this.currentSection;
-    this.index++;
-    this.currentSection = this.sections.toArray()[this.index];
-    this.currentSection.actived();
-    if (this.prevSection) {
-      this.prevSection.inactived();
+    if (this.currentSection) {
+      if (this.currentSection.validate()) {
+        if (this.index  < this.sections.length) {
+          this.index++;
+          this.selectStep(this.index);
+        }
+      }
     }
   }
 
-  getSections(): QueryList<SectionDirective> {
+  selectStep(index: number) {
+    if (index >= 0 && this.index < this.sections.length) {
+      this.prevSection = this.step(this.index - 1);
+      this.currentSection = this.step(this.index);
+      this.currentSection.activated();
+      if (this.prevSection) {
+        this.prevSection.inactivated();
+      }
+    }
+  }
+
+  step(index) {
+    return this.sections.toArray()[index];
+  }
+
+  getSections(): QueryList<SectionDirectiveInterface> {
     console.log('hola')
     return this.sections;
   }

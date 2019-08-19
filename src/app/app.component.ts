@@ -7,7 +7,7 @@ import {AbstractNavigationService} from './navigation-scrollbar/domains/abstract
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
-  providers: [
+  viewProviders: [
     {
       provide: NavigationScrollbarService,
       useClass: NavigationServiceService,

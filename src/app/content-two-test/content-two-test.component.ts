@@ -6,23 +6,23 @@ import {NavigationTwoService} from './navigation-two.service';
   selector: 'app-content-two-test',
   templateUrl: './content-two-test.component.html',
   styleUrls: ['./content-two-test.component.sass'],
-  providers: [
-    {
-      provide: NavigationScrollbarService,
-      useClass: NavigationTwoService,
-    }
-  ]
+  // providers: [
+  //   {
+  //     provide: NavigationScrollbarService,
+  //     useClass: NavigationTwoService,
+  //   }
+  // ]
 })
 export class ContentTwoTestComponent implements OnInit {
 
-  // constructor(private navigationTwoService: NavigationTwoService) { }
-  constructor(@Inject(NavigationScrollbarService) public service) { }
+  constructor() { }
+  // constructor(@Inject(NavigationScrollbarService) public service) { }
 
   ngOnInit() {
   }
 
   viewSections() {
-    console.log(this.service.view());
+    // console.log(this.service.view());
   }
 
 }

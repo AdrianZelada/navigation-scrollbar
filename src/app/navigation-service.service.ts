@@ -19,10 +19,10 @@ export class NavigationServiceService extends AbstractNavigationService {
     // console.log(this.sections);
     this.sections.forEach((section: SectionDirective) => {
       console.log(section);
-      section.setTitle('hola');
+      // section.setTitle('hola');
     });
 
-    this.sections.first.setTitle('primero');
+    // this.sections.first.setTitle('primero');
   }
 
   viewData() {
